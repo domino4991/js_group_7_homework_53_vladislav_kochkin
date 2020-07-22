@@ -5,7 +5,7 @@ const Task = (props) => {
     return (
         <div className='task'>
             <p className='task__text'>{props.text}</p>
-            <button className='task__btn-close'>&times;</button>
+            <button className='task__btn-close' onClick={props.removeTask}>&times;</button>
         </div>
     );
 }

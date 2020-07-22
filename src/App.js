@@ -21,10 +21,19 @@ const App = () => {
 
   const addNewTaskInList = event => {
       event.preventDefault();
+      if(tasks.newTask) {
+          const tasksList = [...tasks.tasksList];
+          const newTask = tasks.newTask;
+          tasksList.push({task: newTask, id: nanoid(6)});
+          setTasks({tasksList, newTask: ''});
+      }
+  }
+
+  const removeTask = id => {
+      const index = tasks.tasksList.findIndex(t => t.id === id);
       const tasksList = [...tasks.tasksList];
-      const newTask = tasks.newTask;
-      tasksList.push({task: newTask, id: nanoid(6)});
-      setTasks({tasksList, newTask: ""});
+      tasksList.splice(index, 1);
+      setTasks({tasksList, newTask: ''});
   }
 
   return (
@@ -36,7 +45,7 @@ const App = () => {
               onAddNewTask={event => addNewTask(event)}
               onAddNewTaskInList={event => addNewTaskInList(event)}
           />
-        {tasks.tasksList.map((item) => <Task key={item.id} text={item.task}/>)}
+        {tasks.tasksList.map((item) => <Task key={item.id} text={item.task} removeTask={() => removeTask(item.id)}/>)}
       </div>
     </div>
   );
