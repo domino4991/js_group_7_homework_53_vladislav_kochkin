@@ -14,12 +14,12 @@ const App = () => {
       newTask: '',
   });
 
-  const onAddNewTask = event => {
+  const addNewTask = event => {
       let newTask = event.target.value;
       setTasks(state => ({...state, newTask}));
   }
 
-  const onAddNewTaskInList = event => {
+  const addNewTaskInList = event => {
       event.preventDefault();
       const tasksList = [...tasks.tasksList];
       const newTask = tasks.newTask;
@@ -31,7 +31,11 @@ const App = () => {
     <div className="App">
       <div className="container">
           <h1 className="title">ToDo List</h1>
-          <AddTasks newTask={tasks.newTask} onAddNewTask={event => onAddNewTask(event)} onAddNewTaskInList={event => onAddNewTaskInList(event)}/>
+          <AddTasks
+              newTask={tasks.newTask}
+              onAddNewTask={event => addNewTask(event)}
+              onAddNewTaskInList={event => addNewTaskInList(event)}
+          />
         {tasks.tasksList.map((item) => <Task key={item.id} text={item.task}/>)}
       </div>
     </div>
