@@ -1,0 +1,47 @@
+.add-tasks-box {
+    margin: 30px 0;
+}
+
+.add-tasks__form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-tasks__text {
+    flex: 1 0 auto;
+    margin-right: 50px;
+    border: none;
+    border-bottom: 2px solid #004d40;
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.add-tasks__text:hover {
+    border-color: #009688;
+}
+
+.add-tasks__text:focus {
+    border-color: #4fc3f7;
+}
+
+.add-tasks__text::placeholder {
+    color: #263238;
+}
+
+.add-tasks__btn {
+    border: none;
+    border-bottom: 2px solid #004d40;
+    background: transparent;
+    text-transform: uppercase;
+    transition: 0.5s;
+    cursor: pointer;
+    padding: 0 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.add-tasks__btn:hover {
+    color: #fafafa;
+    border-radius: 5px;
+    background: #009688;
+}
